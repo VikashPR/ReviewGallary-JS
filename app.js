@@ -46,8 +46,8 @@ window.addEventListener('DOMContentLoaded', function () {
   showPerson(currentItem);
 });
 
-function showPerson(person) {
-  const item = reviews[person];
+function showPerson() {
+  const item = reviews[currentItem];
   img.src = item.img;
   author.textContent = item.name;
   job.textContent = item.job;
@@ -56,7 +56,7 @@ function showPerson(person) {
 
 // show next person 
 nextBtn.addEventListener("click", function () {
-  if (currentItem == reviews.length - 1) {
+  if (currentItem >= reviews.length - 1) {
     currentItem = 0;
   } else {
     currentItem++;
@@ -65,7 +65,7 @@ nextBtn.addEventListener("click", function () {
 });
 // Show prev prerson
 prevBtn.addEventListener("click", function () {
-  if (currentItem == 0) {
+  if (currentItem <= 0) {
     currentItem = reviews.length;
   }
   currentItem--;
